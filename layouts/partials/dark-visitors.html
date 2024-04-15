@@ -1,0 +1,17 @@
+{{- $url := "https://api.darkvisitors.com/robots-txts" -}}
+{{- $api_key := getenv "HUGO_DARKVISITORS" -}}
+{{- $bearer := printf "Bearer %v" $api_key -}}
+{{- $opts := dict
+	"method" "post"
+	"headers" (dict "Authorization" (slice $bearer) "Content-Type" "application/json")
+	"body" `{"agent_types": ["AI Data Scraper"],"disallow": "/"}`
+-}}
+{{- with resources.GetRemote $url $opts -}}
+  {{- with .Err -}}
+    {{- errorf "%s" . -}}
+  {{- else -}}
+		{{- .Content -}}
+  {{- end -}}
+{{- else -}}
+  {{- errorf "Unable to get remote resource %q" $url -}}
+{{- end -}}
