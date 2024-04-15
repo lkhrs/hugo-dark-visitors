@@ -1,1 +1,3 @@
 enableRobotsTXT = true
+[params]
+darkVisitors = [ "AI Assistant", "AI Data Scraper", "AI Search Crawler" ]
