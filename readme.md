@@ -42,3 +42,10 @@ You can override the template provided by this module and use a partial to add t
 ```
 
 Add your custom directives before or after the partial.
+
+## Reducing API calls
+
+Here are two methods for reducing API calls in Hugo:
+
+1. Hugo's file cache (see [Configure file caches](https://gohugo.io/getting-started/configuration/#configure-file-caches))
+2. Only import the module on production builds (see [Configuration directory](https://gohugo.io/getting-started/configuration/#configuration-directory) and [Issue #1](https://github.com/lkhrs/hugo-dark-visitors/issues/1))
