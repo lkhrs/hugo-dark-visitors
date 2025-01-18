@@ -15,12 +15,12 @@
 	"headers" (dict "Authorization" (slice $bearer) "Content-Type" "application/json")
 	"body" (printf `{"agent_types": %s,"disallow": "/"}` $agent_types)
 -}}
-{{- with resources.GetRemote $url $opts -}}
+{{- with try (resources.GetRemote $url $opts) -}}
 	{{- with .Err -}}
 		{{- errorf "%s" . -}}
-	{{- else -}}
+	{{- else with .Value -}}
 		{{- .Content -}}
+	{{- else -}}
+		{{ errorf "Unable to get remote resource %q" $url }}
 	{{- end -}}
-{{- else -}}
-	{{- errorf "Unable to get remote resource %q" $url -}}
 {{- end -}}
