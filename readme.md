@@ -1,6 +1,8 @@
 # hugo-dark-visitors
 Give AI company scraper bots a gentle "no" with this Hugo module. Uses the [Dark Visitors API](https://darkvisitors.com/docs/robots-txts-api) to import the latest `robots.txt`.
 
+**Requires Hugo 0.141.0+**
+
 ## Installing
 
 1. Grab your Dark Visitors API key from the [Projects](https://darkvisitors.com/projects) page
